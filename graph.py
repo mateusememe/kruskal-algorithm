@@ -19,7 +19,10 @@ class Graph:
         return -1
  
     def kruskal(self):
-        print("inital edges:", self.edges)
+        print("\n\n-> Arestas Iniciais:\n")
+        for i in range(len(self.edges)):
+            print(self.edges[i])
+        cost = 0
         for v in self.vertexes:
             v[1] = v[0]
         result = []
@@ -34,6 +37,7 @@ class Graph:
             Vb, Pb = self.vertexes[iB]
             if Pa != Pb:
                 result.append(self.edges[i])
+                cost += self.edges[i][2]
                 if Va == Pa and Vb == Pb:
                     self.vertexes[iB][1] = Va
                 else:
@@ -41,7 +45,10 @@ class Graph:
                         if v[1] == Pb:
                             v[1] = Pa
             i += 1
-        print("result:", result)
+        print("\n-> Resultado:")
+        for i in range(len(result)):
+            print(result[i])
+        print("\nCusto = ",cost,"\n")
             
  
  
